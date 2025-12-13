@@ -16,41 +16,25 @@ export class Events extends APIResource {
 
 export interface EventTrackResponse {
   /**
-   * The event ID
-   */
-  eventId: string;
-
-  /**
-   * The event occurrence ID
-   */
-  occurrenceId: string;
-
-  /**
-   * Whether the operation was successful
+   * Operation success status
    */
   success: boolean;
 }
 
 export interface EventTrackParams {
-  /**
-   * Event name
-   */
-  event: string;
+  name: string;
 
   /**
    * External user ID
    */
-  userId: string;
-
-  /**
-   * Event metadata
-   */
-  properties?: { [key: string]: unknown };
+  user_id: string;
 
   /**
    * Event timestamp (ISO 8601)
    */
   timestamp?: string;
+
+  [k: string]: unknown;
 }
 
 export declare namespace Events {
