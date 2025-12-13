@@ -19,11 +19,6 @@ export interface UserIdentifyResponse {
    * Operation success status
    */
   success: boolean;
-
-  /**
-   * The ID of the identified user
-   */
-  userId: string;
 }
 
 export interface UserIdentifyParams {
