@@ -10,11 +10,7 @@ const client = new Userplex({
 describe('resource users', () => {
   // Prism tests are disabled
   test.skip('identify: only required params', async () => {
-    const responsePromise = client.users.identify({
-      email: 'dev@stainless.com',
-      name: 'name',
-      userId: 'userId',
-    });
+    const responsePromise = client.users.identify({ user_id: 'user_id' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -27,9 +23,9 @@ describe('resource users', () => {
   // Prism tests are disabled
   test.skip('identify: required and optional params', async () => {
     const response = await client.users.identify({
+      user_id: 'user_id',
       email: 'dev@stainless.com',
       name: 'name',
-      userId: 'userId',
       properties: { foo: 'bar' },
     });
   });
