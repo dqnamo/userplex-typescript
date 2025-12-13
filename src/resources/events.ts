@@ -30,6 +30,11 @@ export interface EventNewParams {
   user_id: string;
 
   /**
+   * Additional event properties
+   */
+  properties?: { [key: string]: unknown };
+
+  /**
    * Event timestamp (ISO 8601)
    */
   timestamp?: string;
