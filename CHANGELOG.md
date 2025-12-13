@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.2.0 (2025-12-13)
+
+Full Changelog: [v0.1.0...v0.2.0](https://github.com/dqnamo/userplex-typescript/compare/v0.1.0...v0.2.0)
+
+### Features
+
+* **api:** api update ([e185963](https://github.com/dqnamo/userplex-typescript/commit/e185963f254631bcc9aa1445dc804411830c1920))
+* **api:** api update ([a3b28d4](https://github.com/dqnamo/userplex-typescript/commit/a3b28d4b4fda043811154a36793516db2c5525ac))
+* **api:** manual updates ([967cfca](https://github.com/dqnamo/userplex-typescript/commit/967cfcab1b0424c543019211990cd9004b37c7d4))
+* **api:** manual updates ([e600923](https://github.com/dqnamo/userplex-typescript/commit/e6009236ee2b81b10e6117622d9f2aa177970ee3))
+
+
+### Chores
+
+* **internal:** use npm pack for build uploads ([e0dfa44](https://github.com/dqnamo/userplex-typescript/commit/e0dfa445e99ed9fac34d7667e175723309295f23))
+* **jsdoc:** fix [@link](https://github.com/link) annotations to refer only to parts of the package‘s public interface ([c3f97a2](https://github.com/dqnamo/userplex-typescript/commit/c3f97a2d3d576872a7a7b58de585a6bf2e90917d))
+
 ## 0.1.0 (2025-10-02)
 
 Full Changelog: [v0.0.1...v0.1.0](https://github.com/dqnamo/userplex-typescript/compare/v0.0.1...v0.1.0)

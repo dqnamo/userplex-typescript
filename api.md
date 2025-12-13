@@ -12,8 +12,8 @@ Methods:
 
 Types:
 
-- <code><a href="./src/resources/events.ts">EventTrackResponse</a></code>
+- <code><a href="./src/resources/events.ts">EventNewResponse</a></code>
 
 Methods:
 
-- <code title="post /api/event">client.events.<a href="./src/resources/events.ts">track</a>({ ...params }) -> EventTrackResponse</code>
+- <code title="post /api/event">client.events.<a href="./src/resources/events.ts">new</a>({ ...params }) -> EventNewResponse</code>

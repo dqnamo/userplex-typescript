@@ -9,41 +9,28 @@ export class Events extends APIResource {
    * Creates or uses an existing event and records an event occurrence for an end
    * user. Requires a valid API key for authentication.
    */
-  track(body: EventTrackParams, options?: RequestOptions): APIPromise<EventTrackResponse> {
+  new(body: EventNewParams, options?: RequestOptions): APIPromise<EventNewResponse> {
     return this._client.post('/api/event', { body, ...options });
   }
 }
 
-export interface EventTrackResponse {
+export interface EventNewResponse {
   /**
-   * The event ID
-   */
-  eventId: string;
-
-  /**
-   * The event occurrence ID
-   */
-  occurrenceId: string;
-
-  /**
-   * Whether the operation was successful
+   * Operation success status
    */
   success: boolean;
 }
 
-export interface EventTrackParams {
-  /**
-   * Event name
-   */
-  event: string;
+export interface EventNewParams {
+  name: string;
 
   /**
    * External user ID
    */
-  userId: string;
+  user_id: string;
 
   /**
-   * Event metadata
+   * Additional event properties
    */
   properties?: { [key: string]: unknown };
 
@@ -51,8 +38,10 @@ export interface EventTrackParams {
    * Event timestamp (ISO 8601)
    */
   timestamp?: string;
+
+  [k: string]: unknown;
 }
 
 export declare namespace Events {
-  export { type EventTrackResponse as EventTrackResponse, type EventTrackParams as EventTrackParams };
+  export { type EventNewResponse as EventNewResponse, type EventNewParams as EventNewParams };
 }

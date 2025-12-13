@@ -16,7 +16,7 @@ import * as Errors from './core/error';
 import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
-import { EventTrackParams, EventTrackResponse, Events } from './resources/events';
+import { EventNewParams, EventNewResponse, Events } from './resources/events';
 import { UserIdentifyParams, UserIdentifyResponse, Users } from './resources/users';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
@@ -115,7 +115,7 @@ export class Userplex {
   baseURL: string;
   maxRetries: number;
   timeout: number;
-  logger: Logger | undefined;
+  logger: Logger;
   logLevel: LogLevel | undefined;
   fetchOptions: MergedRequestInit | undefined;
 
@@ -733,7 +733,7 @@ export declare namespace Userplex {
 
   export {
     Events as Events,
-    type EventTrackResponse as EventTrackResponse,
-    type EventTrackParams as EventTrackParams,
+    type EventNewResponse as EventNewResponse,
+    type EventNewParams as EventNewParams,
   };
 }

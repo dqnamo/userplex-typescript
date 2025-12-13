@@ -9,8 +9,8 @@ const client = new Userplex({
 
 describe('resource events', () => {
   // Prism tests are disabled
-  test.skip('track: only required params', async () => {
-    const responsePromise = client.events.track({ event: 'event', userId: 'userId' });
+  test.skip('new: only required params', async () => {
+    const responsePromise = client.events.new({ name: 'name', user_id: 'user_id' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -21,10 +21,10 @@ describe('resource events', () => {
   });
 
   // Prism tests are disabled
-  test.skip('track: required and optional params', async () => {
-    const response = await client.events.track({
-      event: 'event',
-      userId: 'userId',
+  test.skip('new: required and optional params', async () => {
+    const response = await client.events.new({
+      name: 'name',
+      user_id: 'user_id',
       properties: { foo: 'bar' },
       timestamp: '2019-12-27T18:11:19.117Z',
     });

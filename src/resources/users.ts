@@ -16,12 +16,12 @@ export class Users extends APIResource {
 
 export interface UserIdentifyResponse {
   /**
-   * Whether the operation was successful
+   * Operation success status
    */
   success: boolean;
 
   /**
-   * The identified user ID
+   * The ID of the identified user
    */
   userId: string;
 }
