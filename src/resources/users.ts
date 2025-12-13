@@ -23,19 +23,19 @@ export interface UserIdentifyResponse {
 
 export interface UserIdentifyParams {
   /**
+   * Unique identifier for the user
+   */
+  user_id: string;
+
+  /**
    * User email address
    */
-  email: string;
+  email?: string;
 
   /**
    * User full name
    */
-  name: string;
-
-  /**
-   * Unique identifier for the user
-   */
-  userId: string;
+  name?: string;
 
   /**
    * Additional user properties
