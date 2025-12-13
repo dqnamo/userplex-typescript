@@ -306,13 +306,13 @@ describe('instantiate client', () => {
     test('empty env variable', () => {
       process.env['USERPLEX_BASE_URL'] = ''; // empty
       const client = new Userplex({ apiKey: 'My API Key' });
-      expect(client.baseURL).toEqual('https://userplex.app');
+      expect(client.baseURL).toEqual('https://api.userplex.app');
     });
 
     test('blank env variable', () => {
       process.env['USERPLEX_BASE_URL'] = '  '; // blank
       const client = new Userplex({ apiKey: 'My API Key' });
-      expect(client.baseURL).toEqual('https://userplex.app');
+      expect(client.baseURL).toEqual('https://api.userplex.app');
     });
 
     test('in request options', () => {
