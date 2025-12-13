@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.5.0 (2025-12-13)
+
+Full Changelog: [v0.4.0...v0.5.0](https://github.com/dqnamo/userplex-typescript/compare/v0.4.0...v0.5.0)
+
+### Features
+
+* **api:** api update ([2b8b27e](https://github.com/dqnamo/userplex-typescript/commit/2b8b27ebd4c07df8559c1b69bd81ffcac1c2a7eb))
+
 ## 0.4.0 (2025-12-13)
 
 Full Changelog: [v0.3.0...v0.4.0](https://github.com/dqnamo/userplex-typescript/compare/v0.3.0...v0.4.0)
