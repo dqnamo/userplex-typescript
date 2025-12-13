@@ -25,6 +25,7 @@ describe('resource events', () => {
     const response = await client.events.new({
       name: 'name',
       user_id: 'user_id',
+      properties: { foo: 'bar' },
       timestamp: '2019-12-27T18:11:19.117Z',
     });
   });
