@@ -128,7 +128,7 @@ export class Userplex {
    * API Client for interfacing with the Userplex API.
    *
    * @param {string | undefined} [opts.apiKey=process.env['USERPLEX_API_KEY'] ?? undefined]
-   * @param {string} [opts.baseURL=process.env['USERPLEX_BASE_URL'] ?? http://localhost:3000] - Override the default base URL for the API.
+   * @param {string} [opts.baseURL=process.env['USERPLEX_BASE_URL'] ?? https://userplex.app] - Override the default base URL for the API.
    * @param {number} [opts.timeout=1 minute] - The maximum amount of time (in milliseconds) the client will wait for a response before timing out.
    * @param {MergedRequestInit} [opts.fetchOptions] - Additional `RequestInit` options to be passed to `fetch` calls.
    * @param {Fetch} [opts.fetch] - Specify a custom `fetch` function implementation.
@@ -150,7 +150,7 @@ export class Userplex {
     const options: ClientOptions = {
       apiKey,
       ...opts,
-      baseURL: baseURL || `http://localhost:3000`,
+      baseURL: baseURL || `https://userplex.app`,
     };
 
     this.baseURL = options.baseURL!;
@@ -196,7 +196,7 @@ export class Userplex {
    * Check whether the base URL is set to its default.
    */
   #baseURLOverridden(): boolean {
-    return this.baseURL !== 'http://localhost:3000';
+    return this.baseURL !== 'https://userplex.app';
   }
 
   protected defaultQuery(): Record<string, string | undefined> | undefined {
