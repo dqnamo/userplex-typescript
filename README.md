@@ -26,11 +26,7 @@ const client = new Userplex({
   apiKey: process.env['USERPLEX_API_KEY'], // This is the default and can be omitted
 });
 
-const response = await client.users.identify({
-  email: 'REPLACE_ME',
-  name: 'REPLACE_ME',
-  userId: 'REPLACE_ME',
-});
+const response = await client.users.identify({ user_id: 'user_id', email: 'REPLACE_ME', name: 'REPLACE_ME' });
 
 console.log(response.success);
 ```
@@ -47,7 +43,7 @@ const client = new Userplex({
   apiKey: process.env['USERPLEX_API_KEY'], // This is the default and can be omitted
 });
 
-const params: Userplex.UserIdentifyParams = { email: 'REPLACE_ME', name: 'REPLACE_ME', userId: 'REPLACE_ME' };
+const params: Userplex.UserIdentifyParams = { user_id: 'user_id', email: 'REPLACE_ME', name: 'REPLACE_ME' };
 const response: Userplex.UserIdentifyResponse = await client.users.identify(params);
 ```
 
@@ -62,7 +58,7 @@ a subclass of `APIError` will be thrown:
 <!-- prettier-ignore -->
 ```ts
 const response = await client.users
-  .identify({ email: 'REPLACE_ME', name: 'REPLACE_ME', userId: 'REPLACE_ME' })
+  .identify({ user_id: 'user_id', email: 'REPLACE_ME', name: 'REPLACE_ME' })
   .catch(async (err) => {
     if (err instanceof Userplex.APIError) {
       console.log(err.status); // 400
@@ -103,7 +99,7 @@ const client = new Userplex({
 });
 
 // Or, configure per-request:
-await client.users.identify({ email: 'REPLACE_ME', name: 'REPLACE_ME', userId: 'REPLACE_ME' }, {
+await client.users.identify({ user_id: 'user_id', email: 'REPLACE_ME', name: 'REPLACE_ME' }, {
   maxRetries: 5,
 });
 ```
@@ -120,7 +116,7 @@ const client = new Userplex({
 });
 
 // Override per-request:
-await client.users.identify({ email: 'REPLACE_ME', name: 'REPLACE_ME', userId: 'REPLACE_ME' }, {
+await client.users.identify({ user_id: 'user_id', email: 'REPLACE_ME', name: 'REPLACE_ME' }, {
   timeout: 5 * 1000,
 });
 ```
@@ -144,13 +140,13 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 const client = new Userplex();
 
 const response = await client.users
-  .identify({ email: 'REPLACE_ME', name: 'REPLACE_ME', userId: 'REPLACE_ME' })
+  .identify({ user_id: 'user_id', email: 'REPLACE_ME', name: 'REPLACE_ME' })
   .asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
 const { data: response, response: raw } = await client.users
-  .identify({ email: 'REPLACE_ME', name: 'REPLACE_ME', userId: 'REPLACE_ME' })
+  .identify({ user_id: 'user_id', email: 'REPLACE_ME', name: 'REPLACE_ME' })
   .withResponse();
 console.log(raw.headers.get('X-My-Header'));
 console.log(response.success);
