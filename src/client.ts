@@ -16,7 +16,7 @@ import * as Errors from './core/error';
 import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
-import { EventNewParams, EventNewResponse, Events } from './resources/events';
+import { Events } from './resources/events';
 import { UserIdentifyParams, UserIdentifyResponse, Users } from './resources/users';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
@@ -731,9 +731,5 @@ export declare namespace Userplex {
     type UserIdentifyParams as UserIdentifyParams,
   };
 
-  export {
-    Events as Events,
-    type EventNewResponse as EventNewResponse,
-    type EventNewParams as EventNewParams,
-  };
+  export { Events as Events };
 }
