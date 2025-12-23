@@ -5,42 +5,37 @@ import { APIPromise } from '../core/api-promise';
 import { RequestOptions } from '../internal/request-options';
 
 export class Users extends APIResource {
-  /**
-   * Creates or updates an end user in InstantDB with the provided information.
-   * Requires a valid API key for authentication.
-   */
   identify(body: UserIdentifyParams, options?: RequestOptions): APIPromise<UserIdentifyResponse> {
-    return this._client.post('/api/identify', { body, ...options });
+    return this._client.post('/identify', { body, ...options });
   }
 }
 
 export interface UserIdentifyResponse {
-  /**
-   * Operation success status
-   */
   success: boolean;
 }
 
 export interface UserIdentifyParams {
   /**
-   * Unique identifier for the user
+   * External user ID
    */
   user_id: string;
 
   /**
-   * User email address
+   * Additional user attributes
+   */
+  attributes?: { [key: string]: unknown };
+
+  /**
+   * User email
    */
   email?: string;
 
   /**
-   * User full name
+   * User name
    */
   name?: string;
 
-  /**
-   * Additional user properties
-   */
-  properties?: { [key: string]: unknown };
+  [k: string]: unknown;
 }
 
 export declare namespace Users {
