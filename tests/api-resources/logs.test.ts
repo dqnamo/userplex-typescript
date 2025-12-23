@@ -9,8 +9,8 @@ const client = new Userplex({
 
 describe('resource logs', () => {
   // Prism tests are disabled
-  test.skip('batch: only required params', async () => {
-    const responsePromise = client.logs.batch({ logs: [{ name: 'name', user_id: 'user_id' }] });
+  test.skip('batch', async () => {
+    const responsePromise = client.logs.batch();
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -21,23 +21,23 @@ describe('resource logs', () => {
   });
 
   // Prism tests are disabled
-  test.skip('batch: required and optional params', async () => {
-    const response = await client.logs.batch({
-      logs: [
+  test.skip('batch: request options and params are passed correctly', async () => {
+    // ensure the request options are being passed correctly by passing an invalid HTTP method in order to cause an error
+    await expect(
+      client.logs.batch(
         {
-          name: 'name',
-          user_id: 'user_id',
-          data: { foo: 'bar' },
-          properties: { foo: 'bar' },
-          timestamp: '2019-12-27T18:11:19.117Z',
+          body: [
+            { name: 'name', data: { foo: 'bar' }, timestamp: '2019-12-27T18:11:19.117Z', user_id: 'user_id' },
+          ],
         },
-      ],
-    });
+        { path: '/_stainless_unknown_path' },
+      ),
+    ).rejects.toThrow(Userplex.NotFoundError);
   });
 
   // Prism tests are disabled
   test.skip('new: only required params', async () => {
-    const responsePromise = client.logs.new({ name: 'name', user_id: 'user_id' });
+    const responsePromise = client.logs.new({ name: 'name' });
     const rawResponse = await responsePromise.asResponse();
     expect(rawResponse).toBeInstanceOf(Response);
     const response = await responsePromise;
@@ -51,10 +51,9 @@ describe('resource logs', () => {
   test.skip('new: required and optional params', async () => {
     const response = await client.logs.new({
       name: 'name',
-      user_id: 'user_id',
       data: { foo: 'bar' },
-      properties: { foo: 'bar' },
       timestamp: '2019-12-27T18:11:19.117Z',
+      user_id: 'user_id',
     });
   });
 });

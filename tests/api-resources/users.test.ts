@@ -24,9 +24,9 @@ describe('resource users', () => {
   test.skip('identify: required and optional params', async () => {
     const response = await client.users.identify({
       user_id: 'user_id',
+      attributes: { foo: 'bar' },
       email: 'dev@stainless.com',
       name: 'name',
-      properties: { foo: 'bar' },
     });
   });
 });
