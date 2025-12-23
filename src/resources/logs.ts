@@ -5,57 +5,40 @@ import { APIPromise } from '../core/api-promise';
 import { RequestOptions } from '../internal/request-options';
 
 export class Logs extends APIResource {
-  /**
-   * Records multiple log occurrences in a single request. Requires a valid API key
-   * for authentication.
-   */
-  batch(body: LogBatchParams, options?: RequestOptions): APIPromise<LogBatchResponse> {
-    return this._client.post('/api/logs/batch', { body, ...options });
+  batch(
+    params: LogBatchParams | null | undefined = undefined,
+    options?: RequestOptions,
+  ): APIPromise<LogBatchResponse> {
+    const { body } = params ?? {};
+    return this._client.post('/logs', { body: body, ...options });
   }
 
-  /**
-   * Creates or uses an existing log and records a log occurrence for an end user.
-   * Requires a valid API key for authentication.
-   */
   new(body: LogNewParams, options?: RequestOptions): APIPromise<LogNewResponse> {
-    return this._client.post('/api/log', { body, ...options });
+    return this._client.post('/log', { body, ...options });
   }
 }
 
 export interface LogBatchResponse {
-  /**
-   * Number of logs processed
-   */
-  count: number;
-
-  /**
-   * Operation success status
-   */
   success: boolean;
 }
 
 export interface LogNewResponse {
-  /**
-   * Operation success status
-   */
   success: boolean;
 }
 
 export interface LogBatchParams {
   /**
-   * List of logs to track
+   * A list of logs to ingest
    */
-  logs: Array<LogBatchParams.Log>;
+  body?: Array<LogBatchParams.Body>;
 }
 
 export namespace LogBatchParams {
-  export interface Log {
-    name: string;
-
+  export interface Body {
     /**
-     * External user ID
+     * Log name
      */
-    user_id: string;
+    name: string;
 
     /**
      * Additional log data
@@ -63,26 +46,24 @@ export namespace LogBatchParams {
     data?: { [key: string]: unknown };
 
     /**
-     * Alias for data, for compatibility
-     */
-    properties?: { [key: string]: unknown };
-
-    /**
      * Log timestamp (ISO 8601)
      */
     timestamp?: string;
+
+    /**
+     * External user ID
+     */
+    user_id?: string;
 
     [k: string]: unknown;
   }
 }
 
 export interface LogNewParams {
-  name: string;
-
   /**
-   * External user ID
+   * Log name
    */
-  user_id: string;
+  name: string;
 
   /**
    * Additional log data
@@ -90,14 +71,14 @@ export interface LogNewParams {
   data?: { [key: string]: unknown };
 
   /**
-   * Alias for data, for compatibility
-   */
-  properties?: { [key: string]: unknown };
-
-  /**
    * Log timestamp (ISO 8601)
    */
   timestamp?: string;
+
+  /**
+   * External user ID
+   */
+  user_id?: string;
 
   [k: string]: unknown;
 }

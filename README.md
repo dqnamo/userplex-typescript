@@ -22,11 +22,9 @@ The full API of this library can be found in [api.md](api.md).
 ```js
 import Userplex from 'userplex';
 
-const client = new Userplex({
-  apiKey: process.env['USERPLEX_API_KEY'], // This is the default and can be omitted
-});
+const client = new Userplex();
 
-const response = await client.users.identify({ user_id: 'user_id', email: 'REPLACE_ME', name: 'REPLACE_ME' });
+const response = await client.logs.new({ name: 'REPLACE_ME' });
 
 console.log(response.success);
 ```
@@ -39,12 +37,10 @@ This library includes TypeScript definitions for all request params and response
 ```ts
 import Userplex from 'userplex';
 
-const client = new Userplex({
-  apiKey: process.env['USERPLEX_API_KEY'], // This is the default and can be omitted
-});
+const client = new Userplex();
 
-const params: Userplex.UserIdentifyParams = { user_id: 'user_id', email: 'REPLACE_ME', name: 'REPLACE_ME' };
-const response: Userplex.UserIdentifyResponse = await client.users.identify(params);
+const params: Userplex.LogNewParams = { name: 'REPLACE_ME' };
+const response: Userplex.LogNewResponse = await client.logs.new(params);
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -57,17 +53,15 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-const response = await client.users
-  .identify({ user_id: 'user_id', email: 'REPLACE_ME', name: 'REPLACE_ME' })
-  .catch(async (err) => {
-    if (err instanceof Userplex.APIError) {
-      console.log(err.status); // 400
-      console.log(err.name); // BadRequestError
-      console.log(err.headers); // {server: 'nginx', ...}
-    } else {
-      throw err;
-    }
-  });
+const response = await client.logs.new({ name: 'REPLACE_ME' }).catch(async (err) => {
+  if (err instanceof Userplex.APIError) {
+    console.log(err.status); // 400
+    console.log(err.name); // BadRequestError
+    console.log(err.headers); // {server: 'nginx', ...}
+  } else {
+    throw err;
+  }
+});
 ```
 
 Error codes are as follows:
@@ -95,11 +89,12 @@ You can use the `maxRetries` option to configure or disable this:
 ```js
 // Configure the default for all requests:
 const client = new Userplex({
+  apiKey: 'My API Key',
   maxRetries: 0, // default is 2
 });
 
 // Or, configure per-request:
-await client.users.identify({ user_id: 'user_id', email: 'REPLACE_ME', name: 'REPLACE_ME' }, {
+await client.logs.new({ name: 'REPLACE_ME' }, {
   maxRetries: 5,
 });
 ```
@@ -112,11 +107,12 @@ Requests time out after 1 minute by default. You can configure this with a `time
 ```ts
 // Configure the default for all requests:
 const client = new Userplex({
+  apiKey: 'My API Key',
   timeout: 20 * 1000, // 20 seconds (default is 1 minute)
 });
 
 // Override per-request:
-await client.users.identify({ user_id: 'user_id', email: 'REPLACE_ME', name: 'REPLACE_ME' }, {
+await client.logs.new({ name: 'REPLACE_ME' }, {
   timeout: 5 * 1000,
 });
 ```
@@ -139,15 +135,11 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 ```ts
 const client = new Userplex();
 
-const response = await client.users
-  .identify({ user_id: 'user_id', email: 'REPLACE_ME', name: 'REPLACE_ME' })
-  .asResponse();
+const response = await client.logs.new({ name: 'REPLACE_ME' }).asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: response, response: raw } = await client.users
-  .identify({ user_id: 'user_id', email: 'REPLACE_ME', name: 'REPLACE_ME' })
-  .withResponse();
+const { data: response, response: raw } = await client.logs.new({ name: 'REPLACE_ME' }).withResponse();
 console.log(raw.headers.get('X-My-Header'));
 console.log(response.success);
 ```
@@ -229,7 +221,7 @@ parameter. This library doesn't validate at runtime that the request matches the
 send will be sent as-is.
 
 ```ts
-client.users.identify({
+client.logs.new({
   // ...
   // @ts-expect-error baz is not yet public
   baz: 'undocumented option',
