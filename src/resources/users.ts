@@ -34,8 +34,6 @@ export interface UserIdentifyParams {
    * User name
    */
   name?: string;
-
-  [k: string]: unknown;
 }
 
 export declare namespace Users {

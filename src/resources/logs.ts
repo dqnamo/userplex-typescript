@@ -54,8 +54,6 @@ export namespace LogBatchParams {
      * External user ID
      */
     user_id?: string;
-
-    [k: string]: unknown;
   }
 }
 
@@ -79,8 +77,6 @@ export interface LogNewParams {
    * External user ID
    */
   user_id?: string;
-
-  [k: string]: unknown;
 }
 
 export declare namespace Logs {
