@@ -26,7 +26,7 @@ const client = new Userplex({
   apiKey: process.env['USERPLEX_API_KEY'], // This is the default and can be omitted
 });
 
-const response = await client.logs.new({ name: 'REPLACE_ME' });
+const response = await client.users.identify({ user_id: 'user_id' });
 
 console.log(response.success);
 ```
@@ -43,8 +43,8 @@ const client = new Userplex({
   apiKey: process.env['USERPLEX_API_KEY'], // This is the default and can be omitted
 });
 
-const params: Userplex.LogNewParams = { name: 'REPLACE_ME' };
-const response: Userplex.LogNewResponse = await client.logs.new(params);
+const params: Userplex.UserIdentifyParams = { user_id: 'user_id' };
+const response: Userplex.UserIdentifyResponse = await client.users.identify(params);
 ```
 
 Documentation for each method, request param, and response field are available in docstrings and will appear on hover in most modern editors.
@@ -57,7 +57,7 @@ a subclass of `APIError` will be thrown:
 
 <!-- prettier-ignore -->
 ```ts
-const response = await client.logs.new({ name: 'REPLACE_ME' }).catch(async (err) => {
+const response = await client.users.identify({ user_id: 'user_id' }).catch(async (err) => {
   if (err instanceof Userplex.APIError) {
     console.log(err.status); // 400
     console.log(err.name); // BadRequestError
@@ -97,7 +97,7 @@ const client = new Userplex({
 });
 
 // Or, configure per-request:
-await client.logs.new({ name: 'REPLACE_ME' }, {
+await client.users.identify({ user_id: 'user_id' }, {
   maxRetries: 5,
 });
 ```
@@ -114,7 +114,7 @@ const client = new Userplex({
 });
 
 // Override per-request:
-await client.logs.new({ name: 'REPLACE_ME' }, {
+await client.users.identify({ user_id: 'user_id' }, {
   timeout: 5 * 1000,
 });
 ```
@@ -137,11 +137,11 @@ Unlike `.asResponse()` this method consumes the body, returning once it is parse
 ```ts
 const client = new Userplex();
 
-const response = await client.logs.new({ name: 'REPLACE_ME' }).asResponse();
+const response = await client.users.identify({ user_id: 'user_id' }).asResponse();
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: response, response: raw } = await client.logs.new({ name: 'REPLACE_ME' }).withResponse();
+const { data: response, response: raw } = await client.users.identify({ user_id: 'user_id' }).withResponse();
 console.log(raw.headers.get('X-My-Header'));
 console.log(response.success);
 ```
@@ -223,7 +223,7 @@ parameter. This library doesn't validate at runtime that the request matches the
 send will be sent as-is.
 
 ```ts
-client.logs.new({
+client.users.identify({
   // ...
   // @ts-expect-error baz is not yet public
   baz: 'undocumented option',
