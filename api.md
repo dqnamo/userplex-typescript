@@ -1,3 +1,13 @@
+# Events
+
+Types:
+
+- <code><a href="./src/resources/events.ts">EventCaptureResponse</a></code>
+
+Methods:
+
+- <code title="post /capture">client.events.<a href="./src/resources/events.ts">capture</a>({ ...params }) -> EventCaptureResponse</code>
+
 # Users
 
 Types:
@@ -7,5 +17,3 @@ Types:
 Methods:
 
 - <code title="post /identify">client.users.<a href="./src/resources/users.ts">identify</a>({ ...params }) -> UserIdentifyResponse</code>
-
-# Logs

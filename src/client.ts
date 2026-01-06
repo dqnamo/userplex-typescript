@@ -16,7 +16,7 @@ import * as Errors from './core/error';
 import * as Uploads from './core/uploads';
 import * as API from './resources/index';
 import { APIPromise } from './core/api-promise';
-import { Logs } from './resources/logs';
+import { EventCaptureParams, EventCaptureResponse, Events } from './resources/events';
 import { UserIdentifyParams, UserIdentifyResponse, Users } from './resources/users';
 import { type Fetch } from './internal/builtin-types';
 import { HeadersLike, NullableHeaders, buildHeaders } from './internal/headers';
@@ -715,21 +715,25 @@ export class Userplex {
 
   static toFile = Uploads.toFile;
 
+  events: API.Events = new API.Events(this);
   users: API.Users = new API.Users(this);
-  logs: API.Logs = new API.Logs(this);
 }
 
+Userplex.Events = Events;
 Userplex.Users = Users;
-Userplex.Logs = Logs;
 
 export declare namespace Userplex {
   export type RequestOptions = Opts.RequestOptions;
+
+  export {
+    Events as Events,
+    type EventCaptureResponse as EventCaptureResponse,
+    type EventCaptureParams as EventCaptureParams,
+  };
 
   export {
     Users as Users,
     type UserIdentifyResponse as UserIdentifyResponse,
     type UserIdentifyParams as UserIdentifyParams,
   };
-
-  export { Logs as Logs };
 }
