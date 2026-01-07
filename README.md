@@ -26,7 +26,11 @@ const client = new Userplex({
   apiKey: process.env['USERPLEX_API_KEY'], // This is the default and can be omitted
 });
 
-const response = await client.users.identify({ user_id: 'user_id', email: 'REPLACE_ME', name: 'REPLACE_ME' });
+const response = await client.users.identify({
+  user_id: 'user_id',
+  email: 'REPLACE_ME',
+  name: 'REPLACE_ME',
+});
 
 console.log(response.success);
 ```
@@ -141,7 +145,9 @@ const response = await client.events.capture({ name: 'REPLACE_ME' }).asResponse(
 console.log(response.headers.get('X-My-Header'));
 console.log(response.statusText); // access the underlying Response object
 
-const { data: response, response: raw } = await client.events.capture({ name: 'REPLACE_ME' }).withResponse();
+const { data: response, response: raw } = await client.events
+  .capture({ name: 'REPLACE_ME' })
+  .withResponse();
 console.log(raw.headers.get('X-My-Header'));
 console.log(response.success);
 ```
