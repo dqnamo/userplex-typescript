@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.16.1 (2026-02-03)
+
+Full Changelog: [v0.16.0...v0.16.1](https://github.com/dqnamo/userplex-typescript/compare/v0.16.0...v0.16.1)
+
+### Bug Fixes
+
+* **client:** avoid memory leak with abort signals ([ead18bd](https://github.com/dqnamo/userplex-typescript/commit/ead18bd71b3f27e92c39eb9693ae82c77d7a4e81))
+
+
+### Chores
+
+* break long lines in snippets into multiline ([b76604a](https://github.com/dqnamo/userplex-typescript/commit/b76604a1f5c54fa14b1b33dfb4f1308661180db0))
+* **ci:** upgrade `actions/github-script` ([15694f9](https://github.com/dqnamo/userplex-typescript/commit/15694f92cc12b619467b2b5e6f0f47fc26a531e1))
+* **client:** do not parse responses with empty content-length ([b54d9a6](https://github.com/dqnamo/userplex-typescript/commit/b54d9a6c67f23e9a877cfa69937020bc18b83e02))
+* **internal:** update `actions/checkout` version ([ca7c46e](https://github.com/dqnamo/userplex-typescript/commit/ca7c46eb006068a1709ff2ff767da4504e5759aa))
+* **internal:** upgrade babel, qs, js-yaml ([feb6c23](https://github.com/dqnamo/userplex-typescript/commit/feb6c2319af052bb11c78d81f493297a102167b3))
+
 ## 0.16.0 (2026-01-06)
 
 Full Changelog: [v0.15.0...v0.16.0](https://github.com/dqnamo/userplex-typescript/compare/v0.15.0...v0.16.0)
