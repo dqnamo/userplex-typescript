@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.16.2 (2026-02-06)
+
+Full Changelog: [v0.16.1...v0.16.2](https://github.com/dqnamo/userplex-typescript/compare/v0.16.1...v0.16.2)
+
+### Bug Fixes
+
+* **client:** avoid removing abort listener too early ([eb78012](https://github.com/dqnamo/userplex-typescript/commit/eb7801298bc9445ee9bb650540ab79a9dc908ec4))
+
+
+### Chores
+
+* **client:** restructure abort controller binding ([76bc505](https://github.com/dqnamo/userplex-typescript/commit/76bc50546667b091bb748d9b613ab24bd4bc98ca))
+
 ## 0.16.1 (2026-02-03)
 
 Full Changelog: [v0.16.0...v0.16.1](https://github.com/dqnamo/userplex-typescript/compare/v0.16.0...v0.16.1)
