@@ -8,7 +8,7 @@ const client = new Userplex({
 });
 
 describe('resource users', () => {
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('identify: only required params', async () => {
     const responsePromise = client.users.identify({ user_id: 'user_id' });
     const rawResponse = await responsePromise.asResponse();
@@ -20,7 +20,7 @@ describe('resource users', () => {
     expect(dataAndResponse.response).toBe(rawResponse);
   });
 
-  // Prism tests are disabled
+  // Mock server tests are disabled
   test.skip('identify: required and optional params', async () => {
     const response = await client.users.identify({
       user_id: 'user_id',
