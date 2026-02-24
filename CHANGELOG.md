@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.16.3 (2026-02-24)
+
+Full Changelog: [v0.16.2...v0.16.3](https://github.com/dqnamo/userplex-typescript/compare/v0.16.2...v0.16.3)
+
+### Bug Fixes
+
+* **docs/contributing:** correct pnpm link command ([3213935](https://github.com/dqnamo/userplex-typescript/commit/3213935d4147ecf16713942a5a2a5e7d3324afb4))
+
+
+### Chores
+
+* **internal/client:** fix form-urlencoded requests ([9394ddc](https://github.com/dqnamo/userplex-typescript/commit/9394ddcff556203ee49d30ddd13ee420382b845a))
+* **internal:** avoid type checking errors with ts-reset ([3f9c96c](https://github.com/dqnamo/userplex-typescript/commit/3f9c96c62fe1a83bb145ffb721d1f914721c7081))
+* **internal:** remove mock server code ([d3b66be](https://github.com/dqnamo/userplex-typescript/commit/d3b66bed1d9826eda17759be9ab1a5efac38a79b))
+* update mock server docs ([9df434e](https://github.com/dqnamo/userplex-typescript/commit/9df434ea4bd01bb3bdd30b58a0da56f776a41dec))
+
 ## 0.16.2 (2026-02-06)
 
 Full Changelog: [v0.16.1...v0.16.2](https://github.com/dqnamo/userplex-typescript/compare/v0.16.1...v0.16.2)
