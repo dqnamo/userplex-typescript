@@ -60,7 +60,7 @@ $ yarn link userplex
 # With pnpm
 $ pnpm link --global
 $ cd ../my-package
-$ pnpm link -—global userplex
+$ pnpm link --global userplex
 ```
 
 ## Running tests
